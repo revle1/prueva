@@ -36,7 +36,7 @@ app.get('/proveedor', function (req, res) {
   
 app.post('/proveedores', function (req, res) {
         let datos = req.body;
-        let proveedores = new proveedores({
+        let proveedores = new proveedor({
             nomprovee: datos.proveedor,
             nit: datos.nit,
             telefono: datos.telefono,
@@ -45,7 +45,7 @@ app.post('/proveedores', function (req, res) {
             password: datos.password
         });
 
-        proveedores.guardar((err, proveedorDB) => {
+        proveedores.save((err, proveedorDB) => {
             if(err){
                 return res.status(400).json({
                     'succes' : false,
